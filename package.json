@@ -1,0 +1,48 @@
+{
+  "name": "angular2-node-express-webpack",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --progress",
+    "build:prod": "webpack -p --progress",
+    "start": "concurrently \"webpack --watch --colors\" \"nodemon server/main.js\""
+  },
+  "dependencies": {
+    "@angular/common": "~4.0.0",
+    "@angular/compiler": "~4.0.0",
+    "@angular/core": "~4.0.0",
+    "@angular/forms": "~4.0.0",
+    "@angular/http": "~4.0.0",
+    "@angular/platform-browser": "~4.0.0",
+    "@angular/platform-browser-dynamic": "~4.0.0",
+    "@angular/router": "~4.0.0",
+    "@types/node": "^8.0.22",
+    "angular-in-memory-web-api": "~0.3.0",
+    "angular2-router-loader": "^0.3.5",
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "express": "^4.15.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "morgan": "^1.8.2",
+    "mysql": "^2.15.0",
+    "rxjs": "5.0.1",
+    "systemjs": "0.19.40",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.5.0",
+    "angular2-template-loader": "^0.6.2",
+    "awesome-typescript-loader": "^3.2.2",
+    "concurrently": "^3.5.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-loader": "^0.5.0",
+    "html-webpack-plugin": "^2.29.0",
+    "nodemon": "^1.11.0",
+    "raw-loader": "^0.5.1",
+    "ts-loader": "^2.3.2",
+    "typescript": "2.4.0",
+    "webpack": "^3.4.1"
+  }
+}
