@@ -13,6 +13,8 @@ import {AccountListComponent} from './account-list/account-list.component';
 import {enableProdMode} from '@angular/core';
 import { TestComponent } from './app/test/test.component';
 import { UserComponent } from './app/user/user.component';
+import { UserListComponent } from './app/user-list/user-list.component';
+import { UserInsertComponent } from './app/user-insert/user-insert.component';
 enableProdMode();
 
 const routing = RouterModule.forRoot([
@@ -32,7 +34,9 @@ const routing = RouterModule.forRoot([
     			   WelcomeComponent,
     			   AccountListComponent,
     			   TestComponent,
-    			   UserComponent
+    			   UserComponent,
+    			   UserListComponent,
+    			   UserInsertComponent
              ],
     //providers: [],
     bootstrap: [AppComponent]
