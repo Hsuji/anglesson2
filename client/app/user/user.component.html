@@ -1,55 +1,36 @@
-<!-- <div>
-  <h1>유저 리스트</h1>
-  <br/>
-  user name: {{userName}}
-  <br/>
-  <input type="text" [(ngModel)]="userName"/>
-  <input type="text" [(ngModel)]="userAge"/>
-  <button (click)="addUser()">유저추가</button>
-  
-  <input type="text" [(ngModel)]="userNum"/>
-  <button (click)="updateUser()">유저수정</button>
-  <button (click)="deleteUser()">유저삭제</button>
-
-</div>
-
 <div>
-  <li *ngFor="let un of userNameList">
-    {{ un.name }}, {{ un.age }}
-  </li>
-</div> -->
-
-<!-- 자식 컴포넌트에서 보낸 정보를 가공할 함수 호출; $event는 변경할 수 없음 -->
-<app-user-insert (outputUser)="addUser($event)"></app-user-insert>
-<app-user-list [userList]="userList" (outputTest)="outputAlert($event)"></app-user-list>
-
-<!-- <button (click)="selectUserList()">getUsers</button> -->
-<button (click)="getUserList()">getUsers</button>
-<!-- <button (click)="addUser()">addUser</button> -->
+  name: <input type="text" [(ngModel)]="searchUser.userName"/>
+  id: <input type="text" [(ngModel)]="searchUser.id"/>
+  pwd: <input type="text" [(ngModel)]="searchUser.pwd"/>
+  complete: <input type="text" [(ngModel)]="searchUser.complete"/>
+  <button  (click)="getUsers()">getUsers</button>
+  <button  (click)="getUsers2()">getUsers2</button>
+  <button  (click)="showHideAddUserDiv()">{{addUserBtnStr}}</button><br><br>
+  <!-- (outputUser)="addUser($event)" : 자식 -> 부모; 자식 컴포넌트에서 보낸 정보를 가공할 함수 호출; $event는 변경할 수 없음 -->
+  <!-- [addUserShow]="addUserShow" : 부모 -> 자식 -->
+  <app-user-insert (outputUser)="addUser($event)" *ngIf="addUserShow"></app-user-insert>
+</div>
 <div class="container">
-  <h2>User List 2</h2>
-
+  <h2>{{title}}</h2>
   <table class="table table-hover">
     <thead>
       <tr>
-          <th>userNo</th>
-          <th>userName</th>
-          <th>userId</th>
-          <th>userPwd</th>
-          <th>완료여부</th>
-      </tr> 
+        <th>userNo</th>
+        <th>userName</th>
+        <th>userId</th>
+        <th>userPwd</th>
+        <th>완료여부</th>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let un of userList">
-        <td>{{ un.userNo }}</td>
-        <!-- OR -->
-        <!-- <td><input type="text" value="{{ un.userNo }}" disabled/></td> -->
+        <td><input type="text" value="{{un.userNo}}" disabled=true/></td>
         <td><input type="text" [(ngModel)]="un.userName"/></td>
         <td><input type="text" [(ngModel)]="un.userId"/></td>
         <td><input type="text" [(ngModel)]="un.userPwd"/></td>
-        <td><input type="checkbox" [checked]="un.complete"></td>
-        <!-- OR -->
-        <!-- <td><input type="checkbox" [(ngModel)]="un.complete"></td> -->
+        <td>
+            <input type="checkbox" [checked]="un.complete"/>
+        </td>
       </tr>
     </tbody>
   </table>

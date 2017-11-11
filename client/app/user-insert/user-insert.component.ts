@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { User } from "../user/user";
 
 @Component({
@@ -6,7 +6,6 @@ import { User } from "../user/user";
   template: require('./user-insert.component.html')
 })
 export class UserInsertComponent implements OnInit {
-
   user: User = new User;
   @Output() outputUser = new EventEmitter<User>();
 
