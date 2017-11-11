@@ -22,10 +22,10 @@ app.use(morgan('dev'));
 
 //ULR 호출시 항상 실행
 app.use(function (req, res, next) {
+    //DB 작업시
+    /* 다른 방법으로 하기때문에 주석처리     
     console.log(req.path);
     var url = req.path;
-
-    //DB 작업시
     if (url === "/api/users") {
         connection.query('select userNo, userName, userId, userPwd from user_info',
             function(err, rows){
@@ -33,12 +33,19 @@ app.use(function (req, res, next) {
                 console.log("The solution is: ", rows);
                 res.json(rows);
             });
-    } else {
+    } 
+    else {
         //app.module.ts 파일의 라우팅을 따라간다.
         // redirect all html requests to `index.html`
         res.sendFile(path.resolve(__dirname + '/../dist/index.html'));
-    }
+    } 
+    */
+    res.sendFile(path.resolve(__dirname + '/../dist/index.html'));
 });
+
+app.get('/api/users', (req, res, next) => {
+    console.log(req.query.user);
+})
 
 app.listen(app.get('port'), function() {
     console.log('Angular2 fullstack listening on port '+app.get('port'));
