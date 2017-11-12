@@ -23,15 +23,29 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let un of userList">
+      <tr *ngFor="let un of userList" (click)="showUserHis(un.userNo)">
         <td><input type="text" value="{{un.userNo}}" disabled=true/></td>
         <td><input type="text" [(ngModel)]="un.userName"/></td>
         <td><input type="text" [(ngModel)]="un.userId"/></td>
         <td><input type="text" [(ngModel)]="un.userPwd"/></td>
         <td>
-            <input type="checkbox" [checked]="un.complete"/>
+          <input type="checkbox" [checked]="un.complete"/>
         </td>
+      </tr>
+      <tr *ngIf="userList.length == 0">
+        <td colspan="5">유저 정보가 없습니다.</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<app-user-his [(visible)]="showDialog">
+  <p *ngFor="let us of userHisList">
+    {{ us.userNo }} : {{ us.userData }}
+  </p>
+  <p *ngIf="userHisList.length == 0">
+    해당 유저의 히스토리 내역이 없습니다.
+  </p>
+</app-user-his>
+
+<!-- 1. userId 중복 2. notnull 체크 -->

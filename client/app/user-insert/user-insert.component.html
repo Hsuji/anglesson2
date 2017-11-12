@@ -1,21 +1,14 @@
-<div>
-  <table>
-    <tr>
-      <td>name:</td>
-      <td><input type="text" [(ngModel)]="user.userName"/></td>
-    </tr>
-    <tr>
-      <td>id:</td>
-      <td><input type="text" [(ngModel)]="user.userId"/></td>
-    </tr>
-    <tr>
-      <td>pwd:</td>
-      <td><input type="password" [(ngModel)]="user.userPwd"/></td>
-    </tr>
-    <tr>
-      <td>complete:</td>
-      <td><input type="checkbox" [(ngModel)]="user.complete"/></td>
-    </tr>
-  </table>
-</div>
+<!-- <form #userForm="ngForm"> -->
+  <div>
+    name:
+    <input type="text" [(ngModel)]="user.userName"/>
+    id:
+    <input type="text" [(ngModel)]="user.userId"/>
+    pwd:
+    <input type="password" [(ngModel)]="user.userPwd"/>
+    complete:
+    <input type="checkbox" [(ngModel)]="user.complete"/>
+  </div>
+<!-- <button (click)="addUser2()" [disabled]="!userForm.form.valid">추가</button> -->
 <button (click)="addUser2()">추가</button>
+<!-- </form> -->

@@ -25,6 +25,12 @@ export class CommonServiceService {
     return this._http.get(url).map(this.extractJson) .catch(this.handleError);
   }
 
+  protected postJson(url:string, paramObj:Object):Observable<any>{
+    return this._http.post(url, paramObj, {headers: this.headers})
+          .map(this.extractJson)
+          .catch(this.handleError);
+  }
+
   private extractJson(res: Response) {
     let result = res.json();
     if(result.error){
@@ -38,4 +44,5 @@ export class CommonServiceService {
     let errMsg: string = error;
     return Promise.reject(errMsg);
   }
+
 }

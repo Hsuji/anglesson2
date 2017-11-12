@@ -18,6 +18,7 @@ import { UserInsertComponent } from './app/user-insert/user-insert.component';
 import { FunctionTestComponent } from './app/function-test/function-test.component';
 import { ArrowfunctionComponent } from './app/arrowfunction/arrowfunction.component';
 import { PromiseTestComponent } from './app/promise-test/promise-test.component';
+import { UserHisComponent } from './app/user-his/user-his.component';
 enableProdMode();
 
 const routing = RouterModule.forRoot([
@@ -45,7 +46,8 @@ const routing = RouterModule.forRoot([
     			   UserInsertComponent,
     			   FunctionTestComponent,
     			   ArrowfunctionComponent,
-    			   PromiseTestComponent
+    			   PromiseTestComponent,
+    			   UserHisComponent
              ],
     //providers: [],
     bootstrap: [AppComponent]
