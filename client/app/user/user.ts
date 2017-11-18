@@ -5,6 +5,7 @@ export class User {
     userName: string;
     userPwd: string;
     complete: boolean;
+    token:string;
 
     constructor(value: Object = {}) {
         //set할 필요 없이 키값만 같다면 setting해준다.

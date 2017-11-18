@@ -38,6 +38,13 @@ export class UserComponent implements OnInit {
     this.uds.addUser(user).subscribe(datas => {
       console.log("adduser => ", datas);
       //구조체 형태로 키값을 기준로 잡아 자동으로 값 할당 
+      if(datas["error"]){
+        alert(datas["error"]);
+        return;
+      }
+      if(datas["msg"]){
+        alert(datas["msg"]);
+      }
       this.userList = datas["list"];
     }, error => {
       this.errorMsg = <any>error;

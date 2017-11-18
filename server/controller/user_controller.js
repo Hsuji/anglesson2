@@ -29,7 +29,24 @@ function login(req, res, next) {
 }
 
 function insertUser(req, res, next) {
-
+    //json으로 body를 보냄
+    us.insertUser(req.body)
+    .then((result) => {
+        console.log(result);
+        if(result["list"] && result["list"].affectedRows == 1) {
+            us.selectUser({})
+            .then(result => {
+                result["msg"] = "유저가 정상적으로 생성되었습니다.";
+                console.log(result);
+                res.json(result);
+            });
+        }else{
+            res.json(result);
+        }
+        // res.json(result);
+    }).catch(result => {
+        res.json(result);
+    });
 }
 
 function selectUser(req, res, next) {

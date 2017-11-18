@@ -34,11 +34,20 @@ function loginUser(po) {
         }
         result.list[0].token = jwt.sign({sub: po.userId}, "login");
         return result;
-    })
+    });
 }
 
-function insertUser() {
-
+function insertUser(po) {
+    return this.selectUser({"userId": po.userId})
+    .then((result) => {
+        if(result.list.length != 0) {
+            return dbm.promiseException({"code": 100,
+            "errno": 01,
+            "sqlMessage": '유저아이디 : \''+ po.userId +
+            '\'는 이미 존재하는 아이디 입니다.'});
+        }
+        return dbm.updateSql("INSERT_USER", po);
+    });
 }
 //구조체로 선언한 변수 넘기기
 module.exports = userService;
