@@ -56,14 +56,14 @@ export class UserComponent implements OnInit {
   }
 
   showUserHis(userNo:number){
-    //this.showDialog = !this.showDialog;
-    //user-his 컴포넌트의 close에서 visible의 값을 보내기 때문에 true로 해도 무관
-    this.showDialog = true;
-
     //uds 호출한적없음
     this.uds.getUserHis(userNo).subscribe(datas => {
       console.log(datas);
       this.userHisList = datas["list"];
+
+      //this.showDialog = !this.showDialog;
+      //user-his 컴포넌트의 close에서 visible의 값을 보내기 때문에 true로 해도 무관
+      this.showDialog = true;
     }, error => {
       this.errorMsg = <any>error;
       alert(this.errorMsg);
