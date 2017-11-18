@@ -14,6 +14,10 @@ app.set('port', (process.env.PORT || 80));
 app.use('/', express.static(__dirname + '/../dist'));
 app.use('/scripts', express.static(__dirname + '/../node_modules'));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(morgan('dev'));
 ///api/users로 접근시 User 컨트롤러로 분기
 app.use('/api/users', uc);
 
