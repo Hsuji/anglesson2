@@ -19,16 +19,20 @@ import { FunctionTestComponent } from './app/function-test/function-test.compone
 import { ArrowfunctionComponent } from './app/arrowfunction/arrowfunction.component';
 import { PromiseTestComponent } from './app/promise-test/promise-test.component';
 import { UserHisComponent } from './app/user-his/user-his.component';
+import { NotFoundComponent } from "./app/not-found/not-found.component";
 enableProdMode();
 
+//{ path: '**', component: NotFoundComponent }로 안한 이유 => 속도 차이때문에
 const routing = RouterModule.forRoot([
-    { path: '',      component: WelcomeComponent },
-    { path: 'accountlist', component: AccountListComponent },
-    { path: 'test', component: TestComponent },
-    { path: 'userlist', component: UserComponent },
+    { path: '',      		component: WelcomeComponent },
+    { path: 'accountlist', 	component: AccountListComponent },
+    { path: 'test', 		component: TestComponent },
+    { path: 'userlist', 	component: UserComponent },
     { path: 'functiontest', component: FunctionTestComponent },
-    { path: 'arrowfunctest', component: ArrowfunctionComponent },
-    { path: 'promisetest', component: PromiseTestComponent }
+    { path: 'arrowfunctest',component: ArrowfunctionComponent },
+	{ path: 'promisetest', 	component: PromiseTestComponent },
+	{ path: '404', 			component: NotFoundComponent },
+	{ path: '**', 			redirectTo: '404'}
 ]);
 
 @NgModule({
@@ -47,7 +51,8 @@ const routing = RouterModule.forRoot([
     			   FunctionTestComponent,
     			   ArrowfunctionComponent,
     			   PromiseTestComponent,
-    			   UserHisComponent
+				   UserHisComponent,
+				   NotFoundComponent
              ],
     //providers: [],
     bootstrap: [AppComponent]
